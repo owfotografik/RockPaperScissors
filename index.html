@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+    .container {
+        padding: 3%;
+    }
+    .heading {
+        
+    }
+    </style>
+</head>
+<body>
+    <div class="text-center">
+        <h1>Welcome To Rock Paper Scissors!</h1>
+    </div>
+    <div class ="container text-center">
+        <row>
+
+     <div class="col-md-4">      
+    <button type="button" class="btn btn-primary" id="rock" >Rock</button>
+    </div> 
+    <div class="col-md-4"> 
+    <button type="button" class="btn btn-primary" id="paper" >Paper</button>
+    </div>
+    <div class="col-md-4"> 
+    <button type="button" class="btn btn-primary" id="scissors" >Scissors</button>
+    </div>
+
+    </row>
+</div>
+    <script>
+    (function () {
+
+var choices = ['rock', 'paper', 'scissors'];
+var index = Math.floor((Math.random() * 2));
+var computer = choices[index];
+var rock = document.getElementById('rock');
+var paper = document.getElementById('paper');
+var scissors = document.getElementById('scissors');
+
+rock.addEventListener('click', function() {
+    play('rock');
+});
+
+paper.addEventListener('click', function() {
+    play('paper');
+});
+
+scissors.addEventListener('click', function() {
+    play('scissors');
+});
+
+function showResult(result) {
+    alert(result);
+}
+
+function play(playerChoice) {
+console.log(computer)
+console.log(playerChoice)
+if (computer === playerChoice) {
+    result = 'This is a tie ';
+}
+else if ((computer === 'rock' && playerChoice === 'scissors') || 
+        (computer === 'paper' && playerChoice === 'rock') || 
+        (computer === 'scissors' && playerChoice === 'paper')) {
+    result = 'Computer Wins ';
+}
+
+else if (computer === 'rock' && playerChoice === 'paper') {
+    result = 'Player Wins ';
+}
+else if (computer === 'paper' && playerChoice === 'scissors') {
+    result = 'Player Wins ';
+}
+else if (computer === 'scissors' && playerChoice === 'rock') {
+    result = 'Player Wins ';
+}
+
+if (result === 'Player Wins ') {
+showResult(result + 'because ' + playerChoice + ' always beats ' + computer);
+}
+else if (result === 'This is a tie ') {
+    showResult(result + 'because ' + computer + ' always ties ' + playerChoice);
+}
+else {
+    showResult(result + 'because ' + computer + ' always beats ' + playerChoice);
+}
+}
+
+
+
+
+
+
+        
+    }) ()
+
+
+
+</script>
+</body>
+</html>
